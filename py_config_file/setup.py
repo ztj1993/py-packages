@@ -24,7 +24,7 @@ setup(
     long_description=readme,
     long_description_content_type='text/markdown',
     py_modules=['configfile'],
-    url='http://github.com/ztj1993/PythonPackages/blob/master/config_file',
+    url='http://github.com/ztj1993/PythonPackages/blob/master/py_config_file',
     author='ZhangTianJie',
     author_email='ztj1993@gmail.com',
     keywords='configfile config json yaml',

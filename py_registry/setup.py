@@ -24,7 +24,7 @@ setup(
     long_description=readme,
     long_description_content_type='text/markdown',
     py_modules=['registry'],
-    url='http://github.com/ztj1993/PythonPackages/blob/master/registry',
+    url='http://github.com/ztj1993/PythonPackages/blob/master/py_registry',
     author='ZhangTianJie',
     author_email='ztj1993@gmail.com',
     keywords='registry config json yaml',
