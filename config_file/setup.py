@@ -13,7 +13,7 @@ readme = f.read()
 f.close()
 
 setup(
-    name='py_ztj_configfile',
+    name='py-ztj-configfile',
     version=__import__('config_file').__version__,
     description='python configuration file loading package',
     long_description=readme,

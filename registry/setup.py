@@ -13,7 +13,7 @@ readme = f.read()
 f.close()
 
 setup(
-    name='py_ztj_registry',
+    name='py-ztj-registry',
     version=__import__('registry').__version__,
     description='python registry package',
     long_description=readme,
