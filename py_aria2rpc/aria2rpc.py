@@ -2,12 +2,12 @@
 # Intro: Aria2 RPC 调用模块
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# Version: 0.0.1
-# Date: 2019-05-25
+# Version: 0.0.2
+# Date: 2019-09-10
 
 import xmlrpc.client as xmlrpclib
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 class Aria2Rpc(object):
@@ -66,6 +66,14 @@ class Aria2Rpc(object):
     def tell_stopped(self, offset, num, keys=None):
         """返回停止下载的列表信息"""
         return self.call('tellStopped', offset, num, keys)
+
+    def remove_result(self, gid):
+        """移除下载结果"""
+        return self.call('removeDownloadResult', gid)
+
+    def purge_result(self, gid):
+        """清除下载结果"""
+        return self.call('purgeDownloadResult', gid)
 
     def get_version(self):
         """获取版本"""
