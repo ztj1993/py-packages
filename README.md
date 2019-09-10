@@ -1,6 +1,19 @@
 # PythonPackages
 my python package list.
 
+## 如何打包发布
+```
+echo "
+TEST_USERNAME=not_set
+TEST_PASSWORD=not_set
+PYPI_USERNAME=not_set
+PYPI_PASSWORD=not_set
+" | tee ~/.py-pkg-build
+
+docker run -it --rm -v $PWD:/app -e TEST_ENABLE=true --env-file ~/.py-pkg-build ztj1993/image:py-pkg-build
+docker run -it --rm -v $PWD:/app -e PYPI_ENABLE=true --env-file ~/.py-pkg-build ztj1993/image:py-pkg-build
+```
+
 ## 包列表
 
 ### [registry](py_registry) - 配置注册模块
