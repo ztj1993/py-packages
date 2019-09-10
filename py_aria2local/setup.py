@@ -20,7 +20,7 @@ f.close()
 setup(
     name='py-ztj-aria2local',
     version=version,
-    description='python aria2rpc package',
+    description='python aria2local package',
     long_description=readme,
     long_description_content_type='text/markdown',
     py_modules=['aria2local'],
