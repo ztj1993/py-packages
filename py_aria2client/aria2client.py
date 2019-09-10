@@ -10,6 +10,8 @@ import time
 from aria2local import Aria2Local
 from aria2rpc import Aria2Rpc
 
+__version__ = '0.0.1'
+
 
 class Aria2Client(Aria2Local, Aria2Rpc):
     def __init__(self, **kwargs):
