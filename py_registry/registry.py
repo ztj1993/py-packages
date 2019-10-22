@@ -20,13 +20,9 @@ class Registry(object):
 
     def set(self, key, value):
         """设置配置项"""
-        items = key.split(self.separator)
-        # 只需要设置顶层
-        if len(items) == 1:
-            self.options[key] = value
-            return self.get(key)
+        items = key if isinstance(key, list) else key.split(self.separator)
         # 弹出最后的键
-        end_key = items.pop()
+        end_item = items.pop()
         # 执行默认值处理
         options = self.options
         for item in items:
@@ -34,7 +30,7 @@ class Registry(object):
                 options[item] = {}
             options = options.get(item)
         # 设置新值
-        options[end_key] = value
+        options[end_item] = value
         return self.get(key)
 
     def flat(self, key=None, skip=None, options=None):
