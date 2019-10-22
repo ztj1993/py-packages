@@ -67,9 +67,9 @@ class Registry(object):
 
     def get(self, key=None, default=None, empty=False):
         """获取配置项"""
-        if key is None or key == '' or key == '.':
+        if key is None or key == '':
             return self.options
-        items = key.split(self.separator)
+        items = key if isinstance(key, list) else key.split(self.separator)
         # 处理数据
         options = self.options
         for item in items:
