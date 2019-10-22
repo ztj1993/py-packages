@@ -3,11 +3,11 @@
 # Author: Ztj
 # Email: ztj1993@gmail.com
 # Version: 0.0.1
-# Date: 2019-09-02
+# Date: 2019-10-22
 
 import time
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 class Registry(object):
