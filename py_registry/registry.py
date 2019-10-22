@@ -14,7 +14,7 @@ class Registry(object):
     """ 配置模块"""
 
     def __init__(self, options=None):
-        self.options = options if type(options) is dict else {}
+        self.options = options if isinstance(options, dict) else {}
         self.hooks = {}
         self.separator = '.'
 
