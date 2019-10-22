@@ -33,6 +33,18 @@ class Registry(object):
         options[end_item] = value
         return self.get(key)
 
+    def unset(self, key, clear=False):
+        """删除配置项"""
+        items = key if isinstance(key, list) else key.split(self.separator)
+        end_item = items.pop()
+        options = self.get(items)
+        if not isinstance(options, dict):
+            return None
+        item_value = options.pop(end_item)
+        if clear is True and not options:
+            self.unset(items, clear=True)
+        return item_value
+
     def flat(self, key=None, skip=None, options=None):
         """扁平处理"""
         options = dict() if options is None else options

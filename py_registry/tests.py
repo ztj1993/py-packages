@@ -33,6 +33,29 @@ class TestRegistry(unittest.TestCase):
             }
         })
 
+    def test_unset(self):
+        """测试删除配置项"""
+        registry = Registry()
+        registry.set('a', 'a')
+        registry.set('b', [1, 2])
+        registry.set('c.i.h', 'h')
+        registry.set('c.i.j', 'j')
+        registry.unset('c.i.h')
+        self.assertEqual(registry.get(), {
+            'a': 'a',
+            'b': [1, 2],
+            'c': {
+                'i': {
+                    'j': 'j'
+                }
+            }
+        })
+        registry.unset('c.i.j', clear=True)
+        self.assertEqual(registry.get(), {
+            'a': 'a',
+            'b': [1, 2]
+        })
+
     def test_flat(self):
         """测试扁平处理"""
         registry = Registry({
