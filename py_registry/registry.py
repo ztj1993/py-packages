@@ -45,20 +45,9 @@ class Registry(object):
             self.unset(items, clear=True)
         return item_value
 
-    def flat(self, key=None, skip=None, options=None):
+    def flat(self, key=None, prefix=None, skip=None):
         """扁平处理"""
-        options = dict() if options is None else options
-        skip = list() if skip is None else skip
-        key_options = self.get(key)
-        key_prefix = '' if key is None else key + self.separator
-        for k, v in key_options.items():
-            if key_prefix + k in skip:
-                options[key_prefix + k] = v
-            elif isinstance(v, dict):
-                self.flat(key_prefix + k, skip, options)
-            else:
-                options[key_prefix + k] = v
-        return options
+        return self._flat(self.options, delimiter=self.separator, key=key, skip=skip)
 
     @staticmethod
     def _flat(options, delimiter='.', key=None, prefix=None, skip=None):
