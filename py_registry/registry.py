@@ -60,6 +60,31 @@ class Registry(object):
                 options[key_prefix + k] = v
         return options
 
+    @staticmethod
+    def _flat(options, delimiter='.', key=None, prefix=None, skip=None):
+        """
+        字典扁平化处理
+        :param options: 字典
+        :param delimiter: 分隔符
+        :param key: 指定键
+        :param prefix: 指定前缀
+        :param skip: 跳过键
+        :return: dict
+        """
+        skip = list() if skip is None else skip
+        prefix = '' if prefix is None else prefix + delimiter
+        key_options = options if key is None else options.get(key)
+        list_options = list(key_options.items())
+        return_options = dict()
+        for k, v in list_options:
+            if prefix + k in skip:
+                return_options[prefix + k] = v
+            elif isinstance(v, dict):
+                list_options.extend(list({k + delimiter + key: value for key, value in v.items()}.items()))
+            else:
+                return_options[prefix + k] = v
+        return return_options
+
     def merge(self, options, key=None):
         """合并配置"""
         if not isinstance(options, dict):
