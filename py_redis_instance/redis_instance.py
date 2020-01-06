@@ -2,21 +2,21 @@
 # Intro: Redis 实例模块
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# Version: 0.0.1
-# Date: 2019-09-03
+# Version: 0.0.2
+# Date: 2020-01-06
 
 import time
 
 import redis
 from registry import Registry
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 class Redis(object):
 
-    def __init__(self, *args, **kwargs):
-        self.options = Registry(kwargs.get('options'))
+    def __init__(self, **kwargs):
+        self.options = Registry(kwargs)
         self.pool = None
         self.server = None
         self.state = kwargs.get('state', False)
@@ -49,11 +49,3 @@ class Redis(object):
     def check_wait(self, interval_time=60):
         while self.check_state() is False:
             time.sleep(interval_time)
-
-    def __new__(cls, *args, **kwargs):
-        instance = kwargs.get('instance', 0)
-        if not hasattr(cls, '_instances'):
-            cls._instances = {}
-        if instance not in cls._instances:
-            cls._instances[instance] = object.__new__(cls)
-        return cls._instances[instance]

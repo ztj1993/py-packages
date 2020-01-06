@@ -2,7 +2,6 @@
 # Intro: Redis 实例模块安装文件
 # Author: Ztj
 # Email: ztj1993@gmail.com
-# Date: 2019-09-04
 
 import os.path
 import re
