@@ -44,11 +44,14 @@ class DirMods(object):
         return mods
 
     def filter(self, var):
+        exclude = []
         for name, mod in self.mods.items():
             if not hasattr(mod, var):
-                self.mods.pop(name)
+                exclude.append(name)
             if getattr(mod, var) is False:
-                self.mods.pop(name)
+                exclude.append(name)
+        for name in exclude:
+            self.mods.pop(name)
         return self
 
     def call(self, var, *args, **kwargs):
