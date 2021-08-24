@@ -22,3 +22,9 @@
 [submodule "config-registry"]
 	path = config-registry
 	url = https://github.com/ztj1993/py-config-registry.git
+[submodule "apollo-config"]
+	path = apollo-config
+	url = https://github.com/ztj1993/py-apollo-config.git
+[submodule "apollo-client"]
+	path = apollo-client
+	url = https://github.com/ztj1993/py-apollo-client.git
