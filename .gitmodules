@@ -1,0 +1,24 @@
+[submodule "aria2rpc"]
+	path = aria2rpc
+	url = https://github.com/ztj1993/py-aria2rpc.git
+[submodule "celery-tools"]
+	path = celery-tools
+	url = https://github.com/ztj1993/py-celery-tools.git
+[submodule "dir-import"]
+	path = dir-import
+	url = https://github.com/ztj1993/py-dir-import.git
+[submodule "fastapi-tools"]
+	path = fastapi-tools
+	url = https://github.com/ztj1993/py-fastapi-tools.git
+[submodule "json-logging"]
+	path = json-logging
+	url = https://github.com/ztj1993/py-json-logging.git
+[submodule "mysql"]
+	path = mysql
+	url = https://github.com/ztj1993/py-mysql.git
+[submodule "redis"]
+	path = redis
+	url = https://github.com/ztj1993/py-redis.git
+[submodule "config-registry"]
+	path = config-registry
+	url = https://github.com/ztj1993/py-config-registry.git
